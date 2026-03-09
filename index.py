@@ -33,8 +33,11 @@ class Aplikacio:
                 print("Érvénytelen választás.")
     def menumutatas(self):
         print("---------ÉTLAP---------")
+        i = 1
         for item in self.menu:
-            print(item)
+            item = item.split(";")
+            print(f"{i}: {item[0]} - {item[1]} Ft")
+            i += 1
         print("-----------------------")
 
 
