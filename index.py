@@ -21,13 +21,23 @@ class Aplikacio:
         fut = True
         while fut:
             print("---------APPLIKÁCIÓ---------")
-            print("1: Vásárlás")
+            print("1: Étlap megmutatása")
             print("2: Kilépés")
+            print("----------------------------")
             valasztas = int(input("Válassz egy lehetőséget: "))
             if valasztas == 1:
-                self.vasarlas()
+                print(self.menumutatas())
             elif valasztas == 2:
                 fut = False
             else:
                 print("Érvénytelen választás.")
+    def menumutatas(self):
+        print("---------ÉTLAP---------")
+        for item in self.menu:
+            print(item)
+        print("-----------------------")
+
+
+app = Aplikacio(raktar, menu, recept, vasarlasok)
+app.futás()
 
