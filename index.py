@@ -17,5 +17,15 @@ class Aplikacio:
     def ment(fajl, sorok):
         with open(fajl, "w", encoding="utf-8") as f:
             f.write("\n".join(sorok) + ("\n" if sorok else ""))
-
-        
+    def futás(self):
+        fut = True
+        while fut:
+            print("---------APPLIKÁCIÓ---------")
+            print("1: Vásárlás")
+            print("2: Kilépés")
+            if valasztas == "1":
+                self.vasarlas()
+            elif valasztas == "2":
+                fut = False
+            else:
+                print("Érvénytelen választás.")
