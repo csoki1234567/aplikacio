@@ -8,3 +8,14 @@ raktar = betoltes("raktar.csv")
 menu = betoltes("menu.csv")
 recept = betoltes("recept.csv")
 vasarlasok = betoltes("vasarlasok.csv")
+class Aplikacio:
+    def __init__(self, raktar, menu, recept, vasarlasok):
+        self.raktar = raktar
+        self.menu = menu
+        self.recept = recept
+        self.vasarlasok = vasarlasok
+    def ment(fajl, sorok):
+        with open(fajl, "w", encoding="utf-8") as f:
+            f.write("\n".join(sorok) + ("\n" if sorok else ""))
+
+        
