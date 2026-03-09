@@ -9,26 +9,32 @@ raktar = betoltes("raktar.csv")
 menu = betoltes("menu.csv")
 recept = betoltes("recept.csv")
 vasarlasok = betoltes("vasarlasok.csv")
+asztalok = betoltes("asztalok.csv")
 
 #Applikáció
 class Aplikacio:
+
 #Lementi a fájlokat a classbe
-    def __init__(self, raktar, menu, recept, vasarlasok):
+    def __init__(self, raktar, menu, recept, vasarlasok, asztalok):
         self.raktar = raktar
         self.menu = menu
         self.recept = recept
         self.vasarlasok = vasarlasok
+        self.asztalok = asztalok
+
 #Menti a fájlokat a programba
     def ment(fajl, sorok):
         with open(fajl, "w", encoding="utf-8") as f:
             f.write("\n".join(sorok) + ("\n" if sorok else ""))
+
 #Az applikáció menüje
     def futás(self):
         fut = True
         while fut:
             print("---------APPLIKÁCIÓ---------")
             print("1: Étlap megmutatása")
-            print("2: Kilépés")
+            print("2: ASztalfoglalás")
+            print("3: Kilépés")
             print("----------------------------")
             valasztas = int(input("Válassz egy lehetőséget: "))
             if valasztas == 1:
@@ -37,6 +43,7 @@ class Aplikacio:
                 fut = False
             else:
                 print("Érvénytelen választás.")
+
 #Megnyitja az étlapot, és megmutatja mi mennyibe kerül
     def menumutatas(self):
         print("---------ÉTLAP---------")
@@ -47,7 +54,13 @@ class Aplikacio:
             i += 1
         print("-----------------------")
 
+    def asztalfoglalás(self):
+        print("---------Asztalok---------")
+        for i in self.asztalok:
+            print(i)
+    
 
-app = Aplikacio(raktar, menu, recept, vasarlasok)
+
+app = Aplikacio(raktar, menu, recept, vasarlasok, asztalok)
 app.futás()
 
