@@ -1,3 +1,4 @@
+#Betölti a fájlokat a programba
 def betoltes(fajl):
     with open(fajl, "r", encoding="utf-8") as f:
         tartalom = f.readlines()
@@ -8,15 +9,20 @@ raktar = betoltes("raktar.csv")
 menu = betoltes("menu.csv")
 recept = betoltes("recept.csv")
 vasarlasok = betoltes("vasarlasok.csv")
+
+#Applikáció
 class Aplikacio:
+#Lementi a fájlokat a classbe
     def __init__(self, raktar, menu, recept, vasarlasok):
         self.raktar = raktar
         self.menu = menu
         self.recept = recept
         self.vasarlasok = vasarlasok
+#Menti a fájlokat a programba
     def ment(fajl, sorok):
         with open(fajl, "w", encoding="utf-8") as f:
             f.write("\n".join(sorok) + ("\n" if sorok else ""))
+#Az applikáció menüje
     def futás(self):
         fut = True
         while fut:
@@ -31,6 +37,7 @@ class Aplikacio:
                 fut = False
             else:
                 print("Érvénytelen választás.")
+#Megnyitja az étlapot, és megmutatja mi mennyibe kerül
     def menumutatas(self):
         print("---------ÉTLAP---------")
         i = 1
