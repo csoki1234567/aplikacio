@@ -1,7 +1,7 @@
 etlap:
     megmutatja a kajakat es hogy mennyibe kerul 
 
-vasarlas elozmenyek:
+*vasarlas elozmenyek:
     megmutatja ez elott mit vettek egy rendelesbne, es azt ujra lehet rendelni
 
 raktar:
