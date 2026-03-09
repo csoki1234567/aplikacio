@@ -23,9 +23,11 @@ class Aplikacio:
             print("---------APPLIKÁCIÓ---------")
             print("1: Vásárlás")
             print("2: Kilépés")
-            if valasztas == "1":
+            valasztas = int(input("Válassz egy lehetőséget: "))
+            if valasztas == 1:
                 self.vasarlas()
-            elif valasztas == "2":
+            elif valasztas == 2:
                 fut = False
             else:
                 print("Érvénytelen választás.")
+
