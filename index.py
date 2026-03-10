@@ -33,13 +33,15 @@ class Aplikacio:
         while fut:
             print("---------APPLIKÁCIÓ---------")
             print("1: Étlap megmutatása")
-            print("2: ASztalfoglalás")
+            print("2: Asztalfoglalás")
             print("3: Kilépés")
             print("----------------------------")
             valasztas = int(input("Válassz egy lehetőséget: "))
             if valasztas == 1:
                 print(self.menumutatas())
             elif valasztas == 2:
+                print(self.asztalfoglalás())
+            elif valasztas == 3:
                 fut = False
             else:
                 print("Érvénytelen választás.")
@@ -56,10 +58,24 @@ class Aplikacio:
 
     def asztalfoglalás(self):
         print("---------Asztalok---------")
+        y = 1
         for i in self.asztalok:
-            print(i)
-    
-
+            print(f"{y}: {i}")
+            y += 1
+        print("-----------------------")
+        print("mit akarsz csinálni: ")
+        print("1: Asztalfoglalás")
+        print("2: Asztalfoglalás törlése")
+        valasztas = int(input("Válassz egy lehetőséget: "))
+        if valasztas == 1:
+            asztal = int(input("Melyik asztalra szeretnél foglalni? "))
+            kit = input("Kinek a nevére szeretnél foglalni? ")
+            self.asztalok[asztal - 1] = kit
+            Aplikacio.ment("asztalok.csv", self.asztalok)
+        elif valasztas == 2:
+            asztal = int(input("Melyik asztal foglalását szeretnéd törölni? "))
+            self.asztalok[asztal - 1] = "Szabad"
+            Aplikacio.ment("asztalok.csv", self.asztalok)
 
 app = Aplikacio(raktar, menu, recept, vasarlasok, asztalok)
 app.futás()
