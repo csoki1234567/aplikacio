@@ -55,7 +55,7 @@ class Aplikacio:
             print(f"{i}: {item[0]} - {item[1]} Ft")
             i += 1
         print("-----------------------")
-
+#Megmutatja az asztalokat, és lehetőséget ad a foglalásra vagy a foglalás törlésére
     def asztalfoglalás(self):
         print("---------Asztalok---------")
         y = 1
@@ -64,9 +64,11 @@ class Aplikacio:
             y += 1
         print("-----------------------")
         print("mit akarsz csinálni: ")
+        print("-----------------------")
         print("1: Asztalfoglalás")
         print("2: Asztalfoglalás törlése")
-        valasztas = int(input("Válassz egy lehetőséget: "))
+        print("-----------------------")
+        valasztas = int(input("Válassz egy lehetőséget: \n"))
         if valasztas == 1:
             asztal = int(input("Melyik asztalra szeretnél foglalni? "))
             kit = input("Kinek a nevére szeretnél foglalni? ")
