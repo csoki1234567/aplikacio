@@ -1,8 +1,14 @@
-etlap:
-    megmutatja a kajakat es hogy mennyibe kerul 
 
 *vasarlas elozmenyek:
     megmutatja ez elott mit vettek egy rendelesbne, es azt ujra lehet rendelni
 
 raktar:
     mibol mennyi van raktaron
+
+meg mielott betoltene az app, kerje meg ki adja ki az etlelt, jo lesz majd a vasarlashoz
+
+kivalasztas:
+    jo lesz a vasarlashoz, ha valaki  akar xy-t akkor keresse meg az alapanyagokat,vonja le.
+
+vasarlas:
+    kivalaszja mit akar venni, vegosszeget mutat, kivalasztast is hasznalja
