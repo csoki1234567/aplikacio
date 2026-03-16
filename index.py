@@ -35,7 +35,8 @@ class Aplikacio:
             print("1: Étlap")
             print("2: Asztalfoglalás")
             print("3: Raktár")
-            print("4: Kilépés")
+            print("4: rendelés")
+            print("5: kilépés")
             print("----------------------------")
             valasztas = int(input("Válassz egy lehetőséget: "))
             if valasztas == 1:
@@ -45,6 +46,8 @@ class Aplikacio:
             elif valasztas == 3:
                 print(self.raktarmutatas())
             elif valasztas == 4:
+                print(self.rendeles())
+            elif valasztas == 5:
                 fut = False
             else:
                 print("Érvénytelen választás.")
@@ -97,6 +100,28 @@ class Aplikacio:
         print("\n", "A hozzávalók amiket fel kell tölteni: ")
         for kaja in t:
             print(kaja)
+    def rendeles(self):
+        print("---------RENDELÉS---------")
+        rendelesek = []
+        rendele = True
+        print("melyik asztalhoz szeretnéd rendelni?")
+        asztal = int(input("Válassz egy asztalt: "))
+        while rendele:
+            print("Mit szeretnél rendelni? (0-val kiléphetsz)")
+            i = 1
+            for item in self.menu:
+                item = item.split(";")
+                print(f"{i}: {item[0]} - {item[1]} Ft")
+                i += 1
+            valasztas = int(input("Válassz egy lehetőséget: "))
+            if valasztas == 0:
+                rendele = False
+                print("Rendelés vége.")
+            else:
+                rendelesek.append(self.menu[valasztas - 1])
+        return rendelesek,asztal
+            
+
 
 app = Aplikacio(raktar, menu, recept, vasarlasok, asztalok)
 app.futás()
