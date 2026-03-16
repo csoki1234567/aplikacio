@@ -70,11 +70,13 @@ class Aplikacio:
         print("-----------------------")
         valasztas = int(input("Válassz egy lehetőséget: \n"))
         if valasztas == 1:
+            print("-----------------------")
             asztal = int(input("Melyik asztalra szeretnél foglalni? "))
             kit = input("Kinek a nevére szeretnél foglalni? ")
             self.asztalok[asztal - 1] = kit
             Aplikacio.ment("asztalok.csv", self.asztalok)
         elif valasztas == 2:
+            print("-----------------------")
             asztal = int(input("Melyik asztal foglalását szeretnéd törölni? "))
             self.asztalok[asztal - 1] = "Szabad"
             Aplikacio.ment("asztalok.csv", self.asztalok)
