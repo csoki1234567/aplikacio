@@ -131,6 +131,7 @@ class Aplikacio:
                 nev = sor[0]
                 self.asztalok[i] = nev + ";" + ";".join(rendelesek)
                 Aplikacio.ment("asztalok.csv", self.asztalok)
+
             
 
 
