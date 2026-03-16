@@ -43,6 +43,8 @@ class Aplikacio:
             elif valasztas == 2:
                 print(self.asztalfoglalás())
             elif valasztas == 3:
+                print(self.raktarmutatas())
+            elif valasztas == 4:
                 fut = False
             else:
                 print("Érvénytelen választás.")
@@ -81,6 +83,8 @@ class Aplikacio:
             asztal = int(input("Melyik asztal foglalását szeretnéd törölni? "))
             self.asztalok[asztal - 1] = "Szabad"
             Aplikacio.ment("asztalok.csv", self.asztalok)
+    
+    def raktarmutatas(self):
 
 app = Aplikacio(raktar, menu, recept, vasarlasok, asztalok)
 app.futás()
