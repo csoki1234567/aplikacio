@@ -30,6 +30,7 @@ class Aplikacio:
 #Az applikáció menüje
     def futás(self):
         fut = True
+        rendeles = []
         while fut:
             print("---------APPLIKÁCIÓ---------")
             print("1: Étlap")
@@ -122,8 +123,14 @@ class Aplikacio:
                 rendele = False
                 print("Rendelés vége.")
             else:
-                rendelesek.append(self.menu[valasztas - 1])
-        return rendelesek,asztal
+                cucc = self.menu[valasztas - 1].split(";")[0]
+                rendelesek.append(cucc)
+        for i in range(len(self.asztalok)):
+            if i == asztal - 1:
+                sor = self.asztalok[i].split(";")
+                nev = sor[0]
+                self.asztalok[i] = nev + ";" + ";".join(rendelesek)
+                Aplikacio.ment("asztalok.csv", self.asztalok)
             
 
 
