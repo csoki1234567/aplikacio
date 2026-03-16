@@ -32,9 +32,10 @@ class Aplikacio:
         fut = True
         while fut:
             print("---------APPLIKÁCIÓ---------")
-            print("1: Étlap megmutatása")
+            print("1: Étlap")
             print("2: Asztalfoglalás")
-            print("3: Kilépés")
+            print("3: Raktár")
+            print("4: Kilépés")
             print("----------------------------")
             valasztas = int(input("Válassz egy lehetőséget: "))
             if valasztas == 1:
