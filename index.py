@@ -93,13 +93,10 @@ class Aplikacio:
             print(f"{i}: {item[0]} - {item[1]}{item[2]}")
             if int(item[1]) < 200:
                 t.append(item[0])
-                #print(f"Fel kell tölteni a következőt: {item[0]}")
             i += 1
         print("\n", "A hozzávalók amiket fel kell tölteni: ")
         for kaja in t:
             print(kaja)
-            #print(f"Fel kell tölteni a(z) {str(kaja[0])} amelyből csak {str(kaja[1])} van")
 
 app = Aplikacio(raktar, menu, recept, vasarlasok, asztalok)
 app.futás()
-
