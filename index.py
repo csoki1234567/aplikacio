@@ -61,6 +61,7 @@ class Aplikacio:
             print(f"{i}: {item[0]} - {item[1]} Ft")
             i += 1
         print("-----------------------")
+
 #Megmutatja az asztalokat, és lehetőséget ad a foglalásra vagy a foglalás törlésére
     def asztalfoglalás(self):
         print("---------Asztalok---------")
@@ -87,6 +88,7 @@ class Aplikacio:
             self.asztalok[asztal - 1] = "Szabad"
             Aplikacio.ment("asztalok.csv", self.asztalok)
     
+#Megmutatja, hogy miből mennyi van a raktárban, és kiírja, ha valamiből kevés van és újra kell tölteni
     def raktarmutatas(self):
         print("---------RAKTÁR---------")
         t = []
@@ -100,6 +102,8 @@ class Aplikacio:
         print("\n", "A hozzávalók amiket fel kell tölteni: ")
         for kaja in t:
             print(kaja)
+
+#Itt le lehet adni a rendelést, az asztalhoz hozzárendeli a foglaló nevét és, hogy miket rendelt
     def rendeles(self):
         print("---------RENDELÉS---------")
         rendelesek = []
