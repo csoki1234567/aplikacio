@@ -124,6 +124,7 @@ class Aplikacio:
                 print("Rendelés vége.")
             else:
                 cucc = self.menu[valasztas - 1].split(";")[0]
+                self.hozzavalo_kereses(cucc)
                 rendelesek.append(cucc)
         for i in range(len(self.asztalok)):
             if i == asztal - 1:
@@ -132,8 +133,18 @@ class Aplikacio:
                 self.asztalok[i] = nev + ";" + ";".join(rendelesek)
                 Aplikacio.ment("asztalok.csv", self.asztalok)
 
+    def hozzavalo_kereses(self, valasztas):
+        leszedni = []
+        for i in self.recept:
+            i = i.split(";")
+            if i[0] == valasztas:
+                leszedni.append(i[1], i[2])
             
-
-
+        for z in leszedni:
+            for i in self.raktar:
+                i = i.split(";")
+                if i[0] == z[0]:
+                    i[1] = int(i[1]) - z[0]
+        Aplikacio.ment("raktar.csv", self.raktar)
 app = Aplikacio(raktar, menu, recept, vasarlasok, asztalok)
 app.futás()
