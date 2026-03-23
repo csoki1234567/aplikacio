@@ -86,7 +86,7 @@ class Aplikacio:
         elif valasztas == 2:
             print("-----------------------")
             asztal = int(input("Melyik asztal foglalását szeretnéd törölni? "))
-            self.asztalok[asztal - 1] = "Szabad"
+            self.asztalok[asztal - 1] = "szabad"
             Aplikacio.ment("asztalok.csv", self.asztalok)
     
 #Megmutatja, hogy miből mennyi van a raktárban, és kiírja, ha valamiből kevés van és újra kell tölteni
@@ -109,7 +109,12 @@ class Aplikacio:
         print("---------RENDELÉS---------")
         rendelesek = []
         rendele = True
-        print("melyik asztalhoz szeretnéd rendelni?")
+        print("Melyik asztalhoz szeretnéd rendelni?")
+        print("A következő asztalok szabadok: ")
+        for i in range(len(self.asztalok)):
+            ideiglenes_valtozo = self.asztalok[i].split(";")
+            if ideiglenes_valtozo == "szabad":
+                print(i)
         asztal = int(input("Válassz egy asztalt: "))
         while rendele:
             print("Mit szeretnél rendelni? (0-val kiléphetsz)")
