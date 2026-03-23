@@ -37,7 +37,8 @@ class Aplikacio:
             print("2: Asztalfoglalás")
             print("3: Raktár")
             print("4: rendelés")
-            print("5: kilépés")
+            print("5: Vásárlás")
+            print("6: kilépés")
             print("----------------------------")
             valasztas = int(input("Válassz egy lehetőséget: "))
             if valasztas == 1:
@@ -49,6 +50,8 @@ class Aplikacio:
             elif valasztas == 4:
                 print(self.rendeles())
             elif valasztas == 5:
+                print(self.vasarlas())
+            elif valasztas == 6:
                 fut = False
             else:
                 print("Érvénytelen választás.")
@@ -159,5 +162,26 @@ class Aplikacio:
                     ideges[1] = str(ideges[1])
                     self.raktar[i] = ";".join(ideges)
         Aplikacio.ment("raktar.csv", self.raktar)
+    def vasarlas(self):
+        print("---------VÁSÁRLÁS---------")
+        ki = input("Ki volt a felszolgáló?")
+        print("Melyik asztal szeretne vásárolni?")
+        asztal = int(input("Válassz egy asztalt: "))
+        ideiglenes = self.asztalok[asztal - 1].split(";")
+        osszeg = 0
+        for i in range(1,len(ideiglenes)):
+            for z in range(len(self.menu)):
+                if self.menu[z].split(";")[0] == ideiglenes[i]:
+                    osszeg += int(self.menu[z].split(";")[1])
+        vegso = [ki, ideiglenes[0], str(osszeg)]
+        for i in range(1, len(ideiglenes)):
+            vegso.append(ideiglenes[i])
+        self.vasarlasok.append(";".join(vegso))
+        self.asztalok[asztal - 1] = "szabad"
+        Aplikacio.ment("vasarlasok.csv", self.vasarlasok)
+        Aplikacio.ment("asztalok.csv", self.asztalok)
+
+
+
 app = Aplikacio(raktar, menu, recept, vasarlasok, asztalok)
 app.futás()
