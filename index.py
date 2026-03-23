@@ -110,11 +110,13 @@ class Aplikacio:
         rendelesek = []
         rendele = True
         print("Melyik asztalhoz szeretnéd rendelni?")
-        print("A következő asztalok szabadok: ")
+        print("A következő asztalokhoz tudsz rendelni: ")
         for i in range(len(self.asztalok)):
-            ideiglenes_valtozo = self.asztalok[i].split(";")
-            if ideiglenes_valtozo == "szabad":
-                print(i)
+            ideiglenes_valtozo = self.asztalok[i]
+            ideiglenes_valtozo = ideiglenes_valtozo.split(";")
+            if ideiglenes_valtozo[0] != "szabad":
+                print(i+1,end=",")
+        print('')
         asztal = int(input("Válassz egy asztalt: "))
         while rendele:
             print("Mit szeretnél rendelni? (0-val kiléphetsz)")
