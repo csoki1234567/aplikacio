@@ -135,16 +135,22 @@ class Aplikacio:
 
     def hozzavalo_kereses(self, valasztas):
         leszedni = []
-        for i in self.recept:
-            i = i.split(";")
-            if i[0] == valasztas:
-                leszedni.append(i[1], i[2])
-            
-        for z in leszedni:
-            for i in self.raktar:
-                i = i.split(";")
-                if i[0] == z[0]:
-                    i[1] = int(i[1]) - z[0]
+        ideiglenes = []
+        for i in range(len(self.recept)):
+            ideig= self.recept[i].split(";")
+            if ideig[0] == valasztas:
+                ideiglenes.append(ideig[1])
+                ideiglenes.append(ideig[2])
+                leszedni.append(ideiglenes)
+                ideiglenes = []
+
+        for z in range(len(leszedni)):
+            for i in range(len(self.raktar)):
+                ideges = self.raktar[i].split(";")
+                if ideges[0] == leszedni[z][0]:
+                    ideges[1] = int(ideges[1]) - int(leszedni[z][1])
+                    ideges[1] = str(ideges[1])
+                    self.raktar[i] = ";".join(ideges)
         Aplikacio.ment("raktar.csv", self.raktar)
 app = Aplikacio(raktar, menu, recept, vasarlasok, asztalok)
 app.futás()
