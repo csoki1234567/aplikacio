@@ -1,3 +1,4 @@
+import menukiiras
 #Betölti a fájlokat a programba
 def betoltes(fajl):
     with open(fajl, "r", encoding="utf-8") as f:
@@ -32,14 +33,7 @@ class Aplikacio:
         fut = True
         rendeles = []
         while fut:
-            print("---------APPLIKÁCIÓ---------")
-            print("1: Étlap")
-            print("2: Asztalfoglalás")
-            print("3: Raktár")
-            print("4: rendelés")
-            print("5: Vásárlás")
-            print("6: kilépés")
-            print("----------------------------")
+            menukiiras.fomenukiir()
             valasztas = int(input("Válassz egy lehetőséget: "))
             if valasztas == 1:
                 print(self.menumutatas())
