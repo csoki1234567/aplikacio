@@ -1,4 +1,6 @@
 import menukiiras
+import funkciok
+
 #Betölti a fájlokat a programba
 def betoltes(fajl):
     with open(fajl, "r", encoding="utf-8") as f:
@@ -51,41 +53,14 @@ class Aplikacio:
                 print("Érvénytelen választás.")
 
 #Megnyitja az étlapot, és megmutatja mi mennyibe kerül
+
     def menumutatas(self):
-        print("---------ÉTLAP---------")
-        i = 1
-        for item in self.menu:
-            item = item.split(";")
-            print(f"{i}: {item[0]} - {item[1]} Ft")
-            i += 1
-        print("-----------------------")
+        funkciok.etlapmutat(self.menu)
 
 #Megmutatja az asztalokat, és lehetőséget ad a foglalásra vagy a foglalás törlésére
     def asztalfoglalás(self):
-        print("---------Asztalok---------")
-        y = 1
-        for i in self.asztalok:
-            print(f"{y}: {i}")
-            y += 1
-        print("-----------------------")
-        print("mit akarsz csinálni: ")
-        print("-----------------------")
-        print("1: Asztalfoglalás")
-        print("2: Asztalfoglalás törlése")
-        print("-----------------------")
-        valasztas = int(input("Válassz egy lehetőséget: \n"))
-        if valasztas == 1:
-            print("-----------------------")
-            asztal = int(input("Melyik asztalra szeretnél foglalni? "))
-            kit = input("Kinek a nevére szeretnél foglalni? ")
-            self.asztalok[asztal - 1] = kit
-            Aplikacio.ment("asztalok.csv", self.asztalok)
-        elif valasztas == 2:
-            print("-----------------------")
-            asztal = int(input("Melyik asztal foglalását szeretnéd törölni? "))
-            self.asztalok[asztal - 1] = "szabad"
-            Aplikacio.ment("asztalok.csv", self.asztalok)
-    
+        funkciok.asztalfoglalas(self.asztalok)
+
 #Megmutatja, hogy miből mennyi van a raktárban, és kiírja, ha valamiből kevés van és újra kell tölteni
     def raktarmutatas(self):
         print("---------RAKTÁR---------")
