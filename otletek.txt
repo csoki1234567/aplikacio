@@ -1,9 +1,0 @@
-
-*vasarlas elozmenyek:
-    megmutatja ez elott mit vettek egy rendelesbne, es azt ujra lehet rendelni
-
-
-meg mielott betoltene az app, kerje meg ki adja ki az etlelt, jo lesz majd a vasarlashoz
-
-vasarlas:
-    kivalaszja mit akar venni, vegosszeget mutat, kivalasztast is hasznalja
